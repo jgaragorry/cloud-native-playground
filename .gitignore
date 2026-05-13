@@ -1,0 +1,25 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+
+# Terragrunt
+**/.terragrunt-cache/
+
+# Local scripts secrets
+.env
+*.pem
+*.key
+*.pub
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Azure/AWS CLI cache
+.azure/
+.aws/
