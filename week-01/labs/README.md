@@ -81,7 +81,7 @@ az login --use-device-code
 
 ### Para AWS (necesitas credenciales IAM)
 aws configure
-# Ingresa: Access Key, Secret Key, región por defecto (ej. us-east-1), output format (json)
+### Ingresa: Access Key, Secret Key, región por defecto (ej. us-east-1), output format (json)
 
 ### Paso 6: Verificar la instalación
 
