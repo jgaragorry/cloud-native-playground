@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Cloud%20Native-Playground-2ea44f?style=for-the-badge&logo=cloudflare" alt="Cloud Native Playground"/>
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License"/>
+  <img src="https://img.shields.io/badge/Made%20with-Bash-1f425f.svg?style=for-the-badge&logo=gnu-bash" alt="Made with Bash"/>
+  <img src="https://img.shields.io/badge/Terraform-Validated-623CE4?style=for-the-badge&logo=terraform" alt="Terraform Validated"/>
+</p>
+
 # Laboratorio #1: Bootstrap de entorno de desarrollo Cloud Native
 
 **Objetivo:** Configurar un entorno reproducible en WSL2 con Ubuntu 24.04, Terraform, Terragrunt, AWS CLI y Azure CLI.
@@ -42,17 +49,17 @@ sudo apt install -y curl wget unzip git jq
 
 ### Paso 4: Descargar y ejecutar el script de bootstrap
 
-# Descargar el script desde nuestro repositorio
+### Descargar el script desde nuestro repositorio
 ```bash
 curl -fsSL https://raw.githubusercontent.com/jgaragorry/cloud-native-playground/main/week-01/labs/setup-dev-env.sh -o setup-dev-env.sh
 ```
 
-# Hacerlo ejecutable
+### Hacerlo ejecutable
 ```bash
 chmod 750 setup-dev-env.sh
 ```
 
-# Ejecutarlo
+### Ejecutarlo
 ```bash
 ./setup-dev-env.sh
 ```
@@ -67,12 +74,12 @@ chmod 750 setup-dev-env.sh
 
 ### Paso 5: Autenticación en la nube
 
-# Para Azure (modo dispositivo, seguro)
+### Para Azure (modo dispositivo, seguro)
 ```bash
 az login --use-device-code
 ```
 
-# Para AWS (necesitas credenciales IAM)
+### Para AWS (necesitas credenciales IAM)
 aws configure
 # Ingresa: Access Key, Secret Key, región por defecto (ej. us-east-1), output format (json)
 
