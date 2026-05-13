@@ -31,7 +31,7 @@ wsl --set-default-version 2
 
 ### Paso 2: Instalar Ubuntu 24.04 LTS
 ```powershell
-wsl --install -d Ubuntu-24.04
+wsl --install -d Ubuntu-26.04
 ```
 
 ### Paso 3: Dentro de Ubuntu, preparar el sistema
