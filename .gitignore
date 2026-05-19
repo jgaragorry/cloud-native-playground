@@ -23,3 +23,8 @@ Thumbs.db
 # Azure/AWS CLI cache
 .azure/
 .aws/
+
+# Lab específico
+week-01/labs/azure-simple-storage/terraform.tfvars
+week-01/labs/azure-simple-storage/.terraform/
+week-01/labs/azure-simple-storage/terraform.tfstate*

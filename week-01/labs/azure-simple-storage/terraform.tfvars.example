@@ -1,0 +1,6 @@
+# Copia este archivo como terraform.tfvars y completa los valores
+resource_group_name   = "rg-cloudnative-lab"
+location              = "East US"
+storage_account_name  = "stcloudnatvelabXXXX"  # <-- CAMBIA XXXX por un número único
+account_tier          = "Standard"
+account_replication_type = "LRS"
