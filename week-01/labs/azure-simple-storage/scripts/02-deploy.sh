@@ -8,7 +8,7 @@ NC='\033[0m'
 echo -e "${GREEN}🚀 Desplegando Laboratorio #2 con Backend Remoto...${NC}"
 
 # Verificar que existe la configuración del backend
-if [ ! -f ~/.terraform-backend/lab2-backend-config ]; then
+if [ ! -f $HOME/.terraform-backend/lab2-backend-config ]; then
     echo -e "${YELLOW}⚠️ No se encontró configuración de backend. Ejecuta primero:${NC}"
     echo "   ./01-create-backend.sh"
     exit 1
@@ -20,7 +20,7 @@ az account show &> /dev/null || { echo "❌ No autenticado. Ejecuta: az login"; 
 # 1. Inicializar con backend remoto
 echo -e "${YELLOW}📦 Inicializando Terraform con backend remoto...${NC}"
 terraform init -reconfigure \
-    -backend-config=~/.terraform-backend/lab2-backend-config
+    -backend-config=$HOME/.terraform-backend/lab2-backend-config
 
 # 2. Validar
 echo -e "${YELLOW}✅ Validando configuración...${NC}"
@@ -39,6 +39,6 @@ echo -e "${GREEN}✅ Despliegue completado. Outputs:${NC}"
 terraform output
 
 # 6. Ejecutar monitoreo
-./03-monitor.sh
+./scripts/03-monitor.sh
 
 echo -e "${GREEN}🎉 Laboratorio desplegado exitosamente con backend remoto!${NC}"

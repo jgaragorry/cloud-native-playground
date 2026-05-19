@@ -15,7 +15,7 @@ CONTAINER_NAME="tfstate"
 LOCATION="East US"
 
 # Crear Resource Group
-az group create --name $RESOURCE_GROUP --location "$LOCATION" --tags "Environment=backend"
+az group create --name $RESOURCE_GROUP --location "$LOCATION" --tags "Environment=backend" "ManagedBy=Terraform"
 
 # Crear Storage Account
 az storage account create \

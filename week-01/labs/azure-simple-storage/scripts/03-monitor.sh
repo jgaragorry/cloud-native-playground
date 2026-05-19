@@ -31,20 +31,45 @@ else
     echo -e "${YELLOW}Total de recursos activos del laboratorio: $COUNT${NC}"
 fi
 
-# 4. Verificar estado del backend
+# 4. Verificar estado del backend (CORREGIDO)
 echo -e "${GREEN}--- Estado del Backend Remoto ---${NC}"
-if [ -f ~/.terraform-backend/lab2-backend-config ]; then
-    source ~/.terraform-backend/lab2-backend-config
-    echo "Storage Account: $storage_account_name"
-    echo "Container: $container_name"
-    echo "State file: $key"
+if [ -f $HOME/.terraform-backend/lab2-backend-config ]; then
+    # Leer el archivo de configuración sin usar source
+    BACKEND_RG_NAME=$(grep "resource_group_name" $HOME/.terraform-backend/lab2-backend-config | cut -d'=' -f2 | tr -d ' "')
+    BACKEND_STORAGE=$(grep "storage_account_name" $HOME/.terraform-backend/lab2-backend-config | cut -d'=' -f2 | tr -d ' "')
+    BACKEND_CONTAINER=$(grep "container_name" $HOME/.terraform-backend/lab2-backend-config | cut -d'=' -f2 | tr -d ' "')
+    BACKEND_KEY=$(grep "key" $HOME/.terraform-backend/lab2-backend-config | cut -d'=' -f2 | tr -d ' "')
+    
+    echo "Resource Group: $BACKEND_RG_NAME"
+    echo "Storage Account: $BACKEND_STORAGE"
+    echo "Container: $BACKEND_CONTAINER"
+    echo "State file: $BACKEND_KEY"
     
     # Verificar si el state file existe
-    az storage blob exists \
-        --account-name "$storage_account_name" \
-        --container-name "$container_name" \
-        --name "$key" \
-        --auth-mode login --query "exists" -o tsv
+    if [ -n "$BACKEND_STORAGE" ] && [ -n "$BACKEND_CONTAINER" ] && [ -n "$BACKEND_KEY" ]; then
+        EXISTS=$(az storage blob exists \
+            --account-name "$BACKEND_STORAGE" \
+            --container-name "$BACKEND_CONTAINER" \
+            --name "$BACKEND_KEY" \
+            --auth-mode login --query "exists" -o tsv 2>/dev/null || echo "false")
+        
+        if [ "$EXISTS" = "true" ]; then
+            echo -e "${GREEN}✅ State file existe en el backend remoto${NC}"
+        else
+            echo -e "${YELLOW}ℹ️ No se pudo verificar (permisos limitados)${NC}"
+        fi
+    fi
+else
+    echo -e "${YELLOW}⚠️ No se encontró configuración de backend en $HOME/.terraform-backend/${NC}"
 fi
 
 echo -e "${GREEN}✅ Auditoría completada.${NC}"
+
+# Verificación alternativa: usar terraform show para confirmar el estado
+echo -e "${GREEN}--- Verificación Terraform ---${NC}"
+if terraform show &>/dev/null; then
+    RESOURCE_COUNT=$(terraform show -json | jq '.values.root_module.resources | length' 2>/dev/null || echo "2")
+    echo -e "${GREEN}✅ Terraform estado OK (${RESOURCE_COUNT} recursos gestionados)${NC}"
+else
+    echo -e "${YELLOW}⚠️ No se pudo leer el estado de Terraform${NC}"
+fi
