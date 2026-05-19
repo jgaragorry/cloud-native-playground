@@ -220,7 +220,8 @@ account_replication_type = "LRS"
 
 
 ### 📁 Estructura del Laboratorio
-text
+
+```text
 azure-simple-storage/
 ├── scripts/
 │   ├── 01-create-backend.sh   # Crea backend remoto seguro
@@ -233,6 +234,8 @@ azure-simple-storage/
 ├── outputs.tf                  # Outputs útiles
 ├── terraform.tfvars.example    # Ejemplo (seguro para versionar)
 └── README.md                   # Documentación del laboratorio
+```
+
 
 ### ⚠️ Posibles Errores y Soluciones
 
