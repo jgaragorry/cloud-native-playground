@@ -127,10 +127,14 @@ az group list --query "[?contains(name, 'rg-cloudnative')]" -o table
 - Aplicar FinOps desde el primer día, destruyendo siempre lo que creas.
 
 ### ⚠️ Mandamientos FinOps para este Laboratorio
-Regla                               	Por qué
-1. Nunca dejes recursos creados	i       Un Storage Account, aunque barato, genera un coste continuo.
-2. Siempre ejecuta terraform destroy	Es la única forma de garantizar que no haya "recursos huérfanos".
-3. Verifica con az group list	        Un segundo par de ojos (el script) ayuda a prevenir sorpresas.
+
+
+| Regla | Por qué |
+| :--- | :--- |
+| 1. Nunca dejes recursos creados innecesariamente | Un Storage Account, aunque barato, genera un coste continuo. |
+| 2. Siempre ejecuta `terraform destroy` | Es la única forma de garantizar que no haya "recursos huérfanos". |
+| 3. Verifica con `az group list` | Un segundo par de ojos (el script) ayuda a prevenir sorpresas. |
+
 
 ### 📌 Próximo laboratorio (jueves)
 Script de auditoría y destrucción forzosa de recursos (FinOps Proactivo): Automatizaremos la limpieza y generaremos reportes de costes.
