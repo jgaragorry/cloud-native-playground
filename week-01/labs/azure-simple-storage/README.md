@@ -16,8 +16,8 @@
 ### Paso 1: Crear la carpeta del laboratorio
 
 ```bash
-mkdir -p ~/lab/terraform/azure-storage
-cd ~/lab/terraform/azure-storage
+mkdir -p ~/cloud-native-playground/week-01/labs/azure-simple-storage
+cd ~/cloud-native-playground/week-01/labs/azure-simple-storage
 ```
 
 ### Paso 2: Crear los archivos Terraform
