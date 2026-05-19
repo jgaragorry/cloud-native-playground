@@ -28,3 +28,14 @@ Thumbs.db
 week-01/labs/azure-simple-storage/terraform.tfvars
 week-01/labs/azure-simple-storage/.terraform/
 week-01/labs/azure-simple-storage/terraform.tfstate*
+
+# Backend remoto (configuración local)
+.terraform-backend/
+terraform.tfstate*
+tfplan
+*.tfvars
+!.tfvars.example
+
+# Scripts generados
+week-01/labs/azure-simple-storage/terraform.tfvars
+week-01/labs/azure-simple-storage/tfplan
