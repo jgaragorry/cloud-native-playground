@@ -143,30 +143,3 @@ Script de auditoría y destrucción forzosa de recursos (FinOps Proactivo): Auto
 
 ### Hecho con ☁️ por J. Garagorry
 
-
-### 🔧 Instrucciones para añadir este runbook a tu repositorio
-
-Ejecuta estos comandos en tu terminal para reemplazar el archivo existente:
-
-```bash
-cd ~/cloud-native-playground/week-01/labs/azure-simple-storage
-```
-
-# Abre el archivo README.md con un editor (nano, vim, etc.)
-```bash
-vi README.md
-# O usando el comando cat con un here-document como se muestra a continuación
-```
-### Opción más fácil (usando cat y pegado):
-
-1. Ejecuta cat > README.md << 'EOF'
-2. Pega todo el contenido del nuevo runbook (desde <!-- markdownlint-disable MD033 --> hasta Hecho con ☁️ por...)
-3. Escribe EOF y presiona Enter.
-
-### 📤 Subir los cambios a GitHub
-```bash
-cd ~/cloud-native-playground
-git add week-01/labs/azure-simple-storage/README.md
-git commit -m "docs: actualiza README del lab2 con diagramas y badges modernos"
-git push origin main
-```
