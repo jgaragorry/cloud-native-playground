@@ -1,0 +1,4 @@
+location                     = "eastus"
+environment                  = "lab"
+project_name                 = "cloud-native-playground"
+backend_storage_account_name = "tfbackendcnplayground"
